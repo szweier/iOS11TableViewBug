@@ -36,10 +36,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         sections[indexPath.section] = sections[indexPath.section] + 3
         var indexPaths = [IndexPath]()
         for i in 1...3 { indexPaths.append(IndexPath(row: indexPath.row + i, section: indexPath.section)) }
-        tableView.beginUpdates()
-        tableView.reloadRows(at: [indexPath], with: .fade)
         tableView.insertRows(at: indexPaths, with: .fade)
-        tableView.endUpdates()
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
