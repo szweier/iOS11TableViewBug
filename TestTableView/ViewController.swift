@@ -19,7 +19,9 @@ class HeaderView: UITableViewHeaderFooterView {
         view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         view.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         view.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-        view.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        let height = view.heightAnchor.constraint(equalToConstant: 50)
+        height.priority = .defaultHigh
+        height.isActive = true
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -61,7 +63,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let tableView = UITableView()
         view.addSubview(tableView)
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedSectionHeaderHeight = UITableViewAutomaticDimension
+        tableView.sectionHeaderHeight = UITableViewAutomaticDimension
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
